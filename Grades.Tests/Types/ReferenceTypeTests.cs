@@ -13,8 +13,8 @@ namespace Grades.Tests.Types
         [TestMethod]
         public void StringComparisons()
         {
-            string name1 = "Andres";
-            string name2 = "andres";
+            string name1 = "Andrew";
+            string name2 = "andrew";
 
             bool result = String.Equals(name1,name2,StringComparison.InvariantCultureIgnoreCase) ;
             Assert.IsTrue(result);
