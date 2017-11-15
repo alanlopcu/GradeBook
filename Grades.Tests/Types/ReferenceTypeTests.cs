@@ -103,11 +103,6 @@ namespace Grades.Tests.Types
             g1.Name = "Andrew's grade book";
 
             Assert.AreEqual(g1.Name, g2.Name);
-
-            //g1 = new GradeBook();
-            //g1.Name = "Daniela's grade book";
-            //Console.WriteLine(g2.Name);
-            //Console.WriteLine(g1.Name);
         }
     }
 }

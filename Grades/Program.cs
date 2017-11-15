@@ -14,7 +14,6 @@ namespace Grades
         {
             IGradeTracker book = CreateGradeBook();
 
-            //GetBookName(book);
             AddGrades(book);
             SaveGrades(book);
             WriteResult(book);
@@ -22,26 +21,6 @@ namespace Grades
 
         private static IGradeTracker CreateGradeBook()
         {
-            //SpeechSynthesizer synth = new SpeechSynthesizer();
-            //synth.Speak("Hello! This is the grade book program");
-
-            //GradeBook book = new GradeBook();
-
-            //book.NameChanged += new NameChangeDelegate(OnNameChanged);
-            //book.NameChanged += new NameChangeDelegate(OnNameChanged2);
-            //book.NameChanged += new NameChangeDelegate(OnNameChanged2);
-
-            //book.NameChanged += OnNameChanged;
-            //book.NameChanged += OnNameChanged2;
-            //book.NameChanged += OnNameChanged2;
-            //book.NameChanged -= OnNameChanged2;
-
-            //book.NameChanged += OnNameChanged;
-
-            //book.Name = "Andrew's Grade Book";
-            //book.Name = "Grade Book";
-            //book.Name = null;
-
             return new ThrowAwayGradeBook();
         }
 
@@ -54,13 +33,10 @@ namespace Grades
                 Console.WriteLine(grade);
             }
 
-            //Console.WriteLine(book.Name);
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
-            //WriteResult("Grade", stats.LetterGrade);
             WriteResult(stats.Description, stats.LetterGrade);
-            //WriteResult("Highest", (int)stats.HighestGrade);
         }
 
         private static void SaveGrades(IGradeTracker book)
@@ -68,9 +44,6 @@ namespace Grades
             using (StreamWriter outputFile = File.CreateText("grades.txt"))
             {
                 book.WriteGrades(outputFile);
-                //book.WriteGrades(Console.Out);
-                //outputFile.Close();
-                //outputFile.Dispose();
             }
         }
 
@@ -102,33 +75,14 @@ namespace Grades
             }
         }
 
-        //static void OnNameChanged(string existingName, string newName)
-        //{
-        //    Console.WriteLine($"Grade Book changing name from {existingName} to {newName}");
-        //}
-
-        //static void OnNameChanged(object sender, NameChangedEventArgs args)
-        //{
-        //    Console.WriteLine($"Grade Book changing name from {args.ExistingName} to {args.NewName}");
-        //}
-
-        //static void WriteResult(string description, int result)
-        //{
-        //    Console.WriteLine(description + ": " + result);
-        //}
-
         static void WriteResult(string description, float result)
         {
-            //Console.WriteLine(description + ": " + result);
-            //Console.WriteLine("{0}: {1:F2}", description, result); //Float rounded string
-            //Console.WriteLine("{0}: {1:C}", description, result); //Currency string
-            //Console.WriteLine($"{description}: {result:C}", description, result); //New format
-            Console.WriteLine($"{description}: {result:F2}"); //New smaller format
+            Console.WriteLine($"{description}: {result:F2}");
         }
 
         static void WriteResult(string description, string result)
         {
-            Console.WriteLine($"{description}: {result}"); //New smaller format
+            Console.WriteLine($"{description}: {result}");
         }
     }
 }
